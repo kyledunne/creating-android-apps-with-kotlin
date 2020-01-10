@@ -6,7 +6,8 @@
     <data>
         <variable
             name="myName"
-            type="com.example.aboutme.MyName" />
+            type="com.example.aboutme.MyName"
+            />
     </data>
 
     <LinearLayout
