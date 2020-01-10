@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="name">Kyle Dunne</string>
+    <string name="star_image_alt_text">Yellow star</string>
+    <string name="bio_text">Yeah, I’m posting again.  Looking at the dashboard from last night’s dream should give me some additional idea of where I am in this stuff.  This stuff was not just some stuff that stuck in my head and stuck there for ages – I was thinking about it and wondering about it for hours on end, and it did not get less real and less interesting or less important over time.  (I am really tired and I’m just glad I’m not in a daze.)
+\n\n
+I didn’t feel like I was literally being trapped in this dreamscape, though.  I’m not literally “in the nightmare” anymore, at least not in the sense that I don’t think I’m in the dream.  I can remember the passage of time being very clear, but can’t “feel” it anymore.  This is different from lucid dreaming in that I can see things that would be obviously “real” in a normal dream, and there isn’t a sense of separation between the “real” world and the “nightmare” world.
+\n\n
+The parts of the dream I can remember are also not very densely narrated; it’s only the “point-of-view” stuff that is very constrained.  From what I can reconstruct, the dream was very much like this: I remember a variety of episodic events that happened to me, but not a continuous story.  The characters I remember were “real” people I’d know, but not “characters” that existed independently of me.  I didn’t interact with any of the characters, although they could have existed independently of me.  (They didn’t actually exist; there were characters who didn’t exist but were created to act out the events that I had written down, but no actual people I’d known.  I was “from” the viewpoint of the character who doesn’t exist, but this wasn’t “from the viewpoint of anyone else in the story –I’d have remembered that they existed even if they hadn’t.  Everyone simply had to exist if there was to be a story.)
+    \n</string>
+    <string name="what_is_your_nickname">What is your nickname?</string>
+    <string name="done">Done</string>
+</resources>
