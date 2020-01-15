@@ -18,6 +18,7 @@ package com.example.android.dessertpusher
 
 import android.content.ActivityNotFoundException
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -26,6 +27,11 @@ import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
 import com.example.android.dessertpusher.databinding.ActivityMainBinding
+import timber.log.Timber
+
+const val KEY_REVENUE = "key_revenue"
+const val KEY_DESSERTS_SOLD = "key_desserts_sold"
+const val KEY_DESERT_TIMER_SECONDS = "key_dessert_timer_seconds"
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
 
@@ -60,9 +66,13 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             Dessert(R.drawable.nougat, 5000, 16000),
             Dessert(R.drawable.oreo, 6000, 20000)
     )
+
     private var currentDessert = allDesserts[0]
 
+    private lateinit var dessertTimer: DessertTimer
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        Timber.i("onCreate called")
         super.onCreate(savedInstanceState)
 
         // Use Data Binding to get reference to the views
@@ -72,12 +82,27 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             onDessertClicked()
         }
 
+        dessertTimer = DessertTimer(this.lifecycle)
+
+        if (savedInstanceState != null) {
+            revenue = savedInstanceState.getInt(KEY_REVENUE, 0)
+            dessertsSold = savedInstanceState.getInt(KEY_DESSERTS_SOLD, 0)
+            dessertTimer.secondsCount = savedInstanceState.getInt(KEY_DESERT_TIMER_SECONDS, 0)
+        }
+
         // Set the TextViews to the right values
         binding.revenue = revenue
         binding.amountSold = dessertsSold
 
         // Make sure the correct dessert is showing
         binding.dessertButton.setImageResource(currentDessert.imageId)
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Timber.i("onStart called")
     }
 
     /**
@@ -145,5 +170,37 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             R.id.shareMenuButton -> onShare()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Timber.i("onResume called")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Timber.i("onPause called")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Timber.i("onRestart called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Timber.i("onDestroy called")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(KEY_REVENUE, revenue)
+        outState.putInt(KEY_DESSERTS_SOLD, dessertsSold)
+        outState.putInt(KEY_DESERT_TIMER_SECONDS, dessertTimer.secondsCount)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Timber.i("onStop called")
     }
 }
